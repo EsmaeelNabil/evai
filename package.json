@@ -1,0 +1,13 @@
+{
+  "name": "evai",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "quality management system using ai to evaluate pictures",
+  "main": "main",
+  "repository": "https://github.com/EsmaeelNabil/evai",
+  "author": "Esmaeel Moustafa",
+  "license": "MIT",
+  "dependencies": {
+    "ollama": "^0.5.2"
+  }
+}
