@@ -28,4 +28,18 @@ we will get this evaluation
 ```
 
 
-<img width="1512" alt="image" src="https://github.com/EsmaeelNabil/evai/assets/28542963/41abe1d6-5ce0-4205-be60-60d3d5be2dd3">
+<img width="100" src="https://github.com/EsmaeelNabil/evai/blob/main/girl.jpg?raw=true">
+
+if we passed this image 
+``` bash
+node main.js girl.jpg "this picture is very good in quality and has girl inside it"
+```
+
+we will get this evaluation
+
+```json
+{
+  "response": "The image is of high quality, with a clear and well-lit subject. The girl appears to be in focus, and the background is not overly bright or blurred. The composition of the photo is balanced, and the lighting on the subject's face is soft and flattering. Overall, this image deserves a score of 10 for its quality and presentation.",
+  "score": 10
+} 
+```
