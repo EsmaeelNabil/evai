@@ -37,8 +37,8 @@ Examples:
   \"score\": 2
 }
 
-3. For a false statement
-a picture of an orange cat and a bright background, with a prompt of : this picture is very bright and has a car inside it
+3. an example For a false statement
+prompt : a picture of an orange cat and a bright background, with a prompt of : this picture is very bright and has a car inside it
 {
   \"response\": \"The picture is somewhat clear, but the statement isn't fully true, there is a cat and the picture is bright, but there are no cars, therefore I would give it a score of 0.\",
   \"score\": 0
