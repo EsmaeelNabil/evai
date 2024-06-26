@@ -21,9 +21,9 @@ node main.js cat.png "this picture is very bright and has a car inside it"
 we will get this evaluation
 
 ```json
- {
-  "response": "The image shows a cat with a bright and clear background. The lighting is good, and the cat appears to be in focus. There is no car visible in this image. Therefore, I would give it a score of 9 for clarity and detail.",
-  "score": 9
+{
+  "response": "The image shows a cat, not a car. The lighting in the photo is bright, but it does not depict a vehicle. Therefore, I would give this image a score of 0.",
+  "score": 0
 }
 ```
 
