@@ -43,3 +43,20 @@ we will get this evaluation
   "score": 10
 } 
 ```
+
+<img width="100" src="https://github.com/EsmaeelNabil/evai/blob/main/basement.png?raw=true">
+
+if we passed this image 
+
+```bash
+node main.js basement.png "Please analyze the attached image and assess its quality for documentation purposes. The image should be clear, not overly dark, and free from significant blurriness. It should be suitable for use in later evaluations of work or installations, even if taken in low-light conditions such as basements. Ensure that the key details are visible and discernible."
+```
+
+we will get this evaluation
+
+```json
+ {
+  "response": "The image provided is of a basement room with various objects and tools. The lighting in the room appears to be low, which may affect visibility. There are several items that can be identified, including what looks like a workbench or table with tools on it, a chair, and some other miscellaneous items. However, due to the low light conditions, some details are not clearly visible. The overall quality of the image for documentation purposes is not ideal, as it may be difficult to discern certain features or assess the condition of the room accurately. A score of 3 would reflect this assessment.",
+  "score": 3
+}
+```
