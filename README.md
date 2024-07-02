@@ -5,6 +5,8 @@
 - Download [Ollama](https://ollama.com/download)
 - Run `Ollama` app, BTW it doesn't have ui, just a background process.
 - In the terminal, run `./run_server.sh`
+- Run the android app in `qmobile` after changing the baseUrl ip to the host ip.
+
 
 ### Endpoints
 - `api/evaluate`
