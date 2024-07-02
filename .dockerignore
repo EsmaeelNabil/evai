@@ -1,0 +1,24 @@
+# Ignore node_modules folder
+node_modules
+
+# Ignore npm debug log
+npm-debug.log
+
+# Ignore yarn debug log
+yarn-debug.log
+
+# Ignore yarn error log
+yarn-error.log
+
+# Ignore .env file (contains sensitive information)
+.env
+
+# Ignore png and jpg pictures in the root
+*.png
+*.jpg
+
+# Ignore readme files in the root
+*.md
+
+# Ignore folder res
+/res
