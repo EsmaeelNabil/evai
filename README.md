@@ -3,19 +3,24 @@
 
 ### Setup
 - Download [Ollama](https://ollama.com/download)
-- Run the app you downloaded, it doesn't have ui, just a background process.
-- Pull [LLava](https://ollama.com/library/llava) model from here
-  - Run in the terminal `ollama pull llava`
-- CD to the project dir
-  - Run in the terminal `ollama create qm`
+- Run `Ollama` app, BTW it doesn't have ui, just a background process.
+- In the terminal, run `./run_server.sh`
 
-### Usage
+### Endpoints
+- `api/evaluate`
 
-<img width="100" src="https://github.com/EsmaeelNabil/evai/blob/main/cat.png?raw=true">
+Takes `image` and `prompt` as input and returns `response` and `score
+- image is a multipart file with size limit of 100MB
+- prompt is a string
+
+### Example Usages using PostMan or any other tool
+
+<img width="100" src="https://github.com/EsmaeelNabil/evai/blob/main/res/cat.png?raw=true">
 
 if we passed this image 
 ``` bash
-node main.js cat.png "this picture is very bright and has a car inside it"
+image : cat.png
+prompt : "this picture is very bright and has a car inside it"
 ```
 
 we will get this evaluation
@@ -28,11 +33,12 @@ we will get this evaluation
 ```
 
 
-<img width="100" src="https://github.com/EsmaeelNabil/evai/blob/main/girl.jpg?raw=true">
+<img width="100" src="https://github.com/EsmaeelNabil/evai/blob/main/res/girl.jpg?raw=true">
 
 if we passed this image 
 ``` bash
-node main.js girl.jpg "this picture is very good in quality and has girl inside it"
+image : girl.jpg
+prompt : "this picture is very good in quality and has girl inside it"
 ```
 
 we will get this evaluation
@@ -44,12 +50,13 @@ we will get this evaluation
 } 
 ```
 
-<img width="100" src="https://github.com/EsmaeelNabil/evai/blob/main/basement.png?raw=true">
+<img width="100" src="https://github.com/EsmaeelNabil/evai/blob/main/res/basement.png?raw=true">
 
 if we passed this image 
 
 ```bash
-node main.js basement.png "Please analyze the attached image and assess its quality for documentation purposes. The image should be clear, not overly dark, and free from significant blurriness. It should be suitable for use in later evaluations of work or installations, even if taken in low-light conditions such as basements. Ensure that the key details are visible and discernible."
+image : basement.png
+prompt : "Please analyze the attached image and assess its quality for documentation purposes. The image should be clear, not overly dark, and free from significant blurriness. It should be suitable for use in later evaluations of work or installations, even if taken in low-light conditions such as basements. Ensure that the key details are visible and discernible."
 ```
 
 we will get this evaluation
