@@ -9,7 +9,7 @@
 ### Endpoints
 - `api/evaluate`
 
-Takes `image` and `prompt` as input and returns `response` and `score
+Takes `image` and `prompt` as input and returns `response` and `score`
 - image is a multipart file with size limit of 100MB
 - prompt is a string
 
