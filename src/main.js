@@ -7,35 +7,18 @@ import path from 'path';
 const app = express();
 const port = 3993;
 
-// Set up storage engine
 const storage = multer.diskStorage({
-  destination: './uploads/',
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/')
+  },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    cb(null, file.fieldname + '-' + uniqueSuffix + ".png")
   }
-});
+})
 
-// Initialize upload
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 100000000 }, // 100 MB
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb);
-  }
-}).single('image');
+const upload = multer({ storage: storage })
 
-// Check file type
-function checkFileType(file, cb) {
-  const filetypes = /jpeg|jpg|png|gif/;
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = filetypes.test(file.mimetype);
-
-  if (mimetype && extname) {
-    return cb(null, true);
-  } else {
-    cb('Error: Images Only!');
-  }
-}
 
 async function generateResponse(base64Image, prompt) {
   try {
@@ -56,14 +39,16 @@ async function generateResponse(base64Image, prompt) {
   }
 }
 
-app.post('/api/evaluate', upload, async (req, res) => {
+app.post('/api/evaluate', upload.single('image'), async (req, res) => {
   const imagePath = req.file.path;
   const prompt = req.body.prompt;
+
+  console.log("Image path: " + imagePath);
+  console.log("Prompt: " + prompt);
 
   try {
     // Read the image file and convert it to a base64 string
     const base64Image = fs.readFileSync(path.resolve(imagePath), { encoding: 'base64' });
-
     // Generate response from the model
     const response = await generateResponse(base64Image, prompt);
 
@@ -71,12 +56,20 @@ app.post('/api/evaluate', upload, async (req, res) => {
     fs.unlinkSync(imagePath);
 
     res.json(response);
+
+    // clear uploads/ folder
+    const uploadsFolder = 'uploads';
+    const files = fs.readdirSync(uploadsFolder);
+    for (const file of files) {
+      fs.unlinkSync(path.join(uploadsFolder, file));
+    }
   } catch (error) {
     // Ensure the uploaded image file is deleted in case of error
     if (fs.existsSync(imagePath)) {
       fs.unlinkSync(imagePath);
     }
     res.status(500).send(error.toString());
+    console.error(error);
   }
 });
 
