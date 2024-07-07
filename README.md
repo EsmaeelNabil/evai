@@ -7,6 +7,12 @@
 - In the terminal, run `./run_server.sh`
 - Run the android app in `qmobile` after changing the baseUrl ip to the host ip.
 
+- this will install the app to your emulator or connected phone.
+``` bash
+./gradlew installDebug
+```
+
+- input your `local ip` in the android app, write a prompt that has a statement that you want to evaluate against the picked photo. 
 
 ### Endpoints
 - `api/evaluate`

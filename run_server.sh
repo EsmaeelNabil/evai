@@ -17,4 +17,4 @@ echo "Creating qm model"
 ollama create qm &&
 
 echo "Running backend service"
-docker-compose up --build
+docker-compose -f qm-server-kotlin/docker-compose.yml up --build
