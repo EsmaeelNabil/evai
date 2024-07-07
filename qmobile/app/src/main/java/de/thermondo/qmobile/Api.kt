@@ -5,14 +5,16 @@ import okhttp3.RequestBody
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
-import java.io.InputStream
+import retrofit2.http.Url
 
 interface Api {
 
-    @Multipart
-    @POST(EVALUATE)
-    suspend fun evaluate(
-        @Part image: MultipartBody.Part,
-        @Part("prompt") prompt: RequestBody
-    ): EvaluationResponse
+  @Multipart
+  @POST
+  suspend fun evaluate(
+      @Url url: String,
+      @Part image: MultipartBody.Part,
+      @Part("prompt") prompt: RequestBody
+  ): EvaluationResponse
 }
+
