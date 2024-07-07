@@ -12,6 +12,8 @@
 ./gradlew installDebug
 ```
 
+<img width="400" src="https://github.com/EsmaeelNabil/evai/blob/main/res/mobile-app.png?raw=true">
+
 - input your `local ip` in the android app, write a prompt that has a statement that you want to evaluate against the picked photo. 
 
 ### Endpoints
