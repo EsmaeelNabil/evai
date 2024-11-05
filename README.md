@@ -4,7 +4,7 @@
 ### Setup
 - Download [Ollama](https://ollama.com/download)
 - Run `Ollama` app, BTW it doesn't have ui, just a background process.
-- In the terminal, run `./run_server.sh`
+- In the terminal, run `./run_server.sh`, this will pull `llava:latest` and prepare it for our use-case.
 - Run the android app in `qmobile` after changing the baseUrl ip to the `host ip` that has the server running, this will install the app to your emulator or connected phone.
 ``` bash
 ./gradlew installDebug
